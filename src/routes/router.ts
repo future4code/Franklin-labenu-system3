@@ -9,8 +9,8 @@ const studentController = new StudentController();
 router.get('/student', studentController.get);
 
 const teacherController = new TeacherController();
-router.get('/teacher', teacherController.get);
-
+router.post('/create-teacher', teacherController.CreateTeacher);
+router.get('/teacher', teacherController.GetTeacher);
 
 const classController = new ClassController();
 router.get('/class', classController.findAll);
