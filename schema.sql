@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS `Students` (
     id VARCHAR(255) PRIMARY KEY,
     `name` VARCHAR(255) NOT NULL, 
     email VARCHAR(255) NOT NULL UNIQUE,
-    birthDate DATE NOT NULL,
+    birth_date DATE NOT NULL,
     class_id VARCHAR(255) NOT NULL,
     FOREIGN KEY (class_id) REFERENCES Classes(id)
 );
