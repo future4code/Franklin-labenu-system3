@@ -12,8 +12,10 @@ router.get('/student', studentController.findAll);
 router.get('/student/:name', studentController.getByName);
 
 const teacherController = new TeacherController();
-router.post('/create-teacher', teacherController.CreateTeacher);
+router.post('/teacher', teacherController.CreateTeacher);
+router.put('/teacher/:id', teacherController.EditTeacher);
 router.get('/teacher', teacherController.GetTeacher);
+router.get('/teacher/:name', teacherController.GetTeacherByName);
 
 const classController = new ClassController();
 router.get('/class', classController.findAll);
