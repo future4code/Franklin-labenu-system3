@@ -1,14 +1,14 @@
 {
   "name": "franklin-labenu-system3",
   "version": "1.0.0",
-  "description": "Class Knex",
+  "description": "Labenu system",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node-dev --respawn --transpile-only index.ts",
     "build": "tsc"
   },
-  "author": "Leonardo Santino",
+  "author": "Leonardo, Maiara, Naiara",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
