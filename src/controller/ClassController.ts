@@ -15,6 +15,12 @@ export default class ClassController {
     return response.status(code).json(result);
   }
 
+  async getActiveClasses(request: Request, response: Response) {
+    const { code, result } = await Class.getActiveClasses();
+
+    return response.status(code).json(result);
+  }
+
   async save(request: Request, response: Response) {
     const classes = request.body;
     const { code, result } = await Class.save(classes);
@@ -28,5 +34,5 @@ export default class ClassController {
     const { code, result } = await Class.update(id, classes);
 
     return response.status(code).json(result);
-  };
-};
+  }
+}

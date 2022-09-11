@@ -21,6 +21,8 @@ const classController = new ClassController();
 router.post('/class', classController.save);
 router.put('/class/:id', classController.update);
 router.get('/class/:id', classController.getById);
+router.get('/class/status/active', classController.getActiveClasses);
+
 router.get('/class', classController.findAll);
 
 export default router;
