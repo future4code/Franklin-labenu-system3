@@ -18,10 +18,9 @@ router.get('/teacher', teacherController.GetTeacher);
 router.get('/teacher/:name', teacherController.GetTeacherByName);
 
 const classController = new ClassController();
-router.get('/class', classController.findAll);
-router.get('/class/:id', classController.findOne);
-router.post('/class', classController.create);
+router.post('/class', classController.save);
 router.put('/class/:id', classController.update);
+router.get('/class/:id', classController.getById);
+router.get('/class', classController.findAll);
 
 export default router;
-
