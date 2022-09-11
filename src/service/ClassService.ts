@@ -1,6 +1,6 @@
 import Class from '../model/Class';
 import { knex } from '../config/connection';
-import { dateFormat } from '../utils/dateFormat';
+import {v4 as uuid} from 'uuid';
 
 export default class ClassService {
   static async findAll() {
@@ -12,7 +12,7 @@ export default class ClassService {
   static async save(classes: Class) {
     return await knex('Classes')
       .insert({
-        id: classes.id,
+        id: uuid(),
         name: classes.name,
         module: classes.module,
       })
@@ -31,7 +31,6 @@ export default class ClassService {
     return await knex('Classes')
       .where('id', id)
       .update({
-        id,
         name: classes.name,
         module: classes.module,
       })
