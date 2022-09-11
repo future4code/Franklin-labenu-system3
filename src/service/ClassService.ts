@@ -1,6 +1,6 @@
 import Class from '../model/Class';
 import { knex } from '../config/connection';
-import {v4 as uuid} from 'uuid';
+import { v4 as uuid } from 'uuid';
 
 export default class ClassService {
   static async findAll() {
@@ -24,6 +24,16 @@ export default class ClassService {
     return await knex('Classes')
       .where('id', id)
       .then((result: Array<Class>) => ({ code: 200, result: result }))
+      .catch((error) => ({ code: 404, result: error.message }));
+  }
+
+  static async getActiveClasses() {
+    return await knex('Classes')
+      .where('module', '>', 0)
+      .then((result: Array<Class>) => {
+        if (!result.length) throw new Error('Não há turmas ativas');
+        return { code: 200, result: result };
+      })
       .catch((error) => ({ code: 404, result: error.message }));
   }
 
