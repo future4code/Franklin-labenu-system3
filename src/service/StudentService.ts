@@ -1,12 +1,13 @@
 import { knex } from '../config/connection';
 import Student from '../model/Student';
 import { dateFormat } from '../utils/dateFormat';
+import {v4 as uuid} from 'uuid';
 
 export default class StudentService {
   static async save(student: Student) {
     return await knex('Students')
       .insert({
-        id: student.id,
+        id: uuid(),
         name: student.name,
         email: student.email,
         birth_date: dateFormat(student.birth_date),
@@ -24,7 +25,6 @@ export default class StudentService {
     return await knex('Students')
       .where('id', id)
       .update({
-        id: student.id,
         name: student.name,
         email: student.email,
         birth_date: dateFormat(student.birth_date),
