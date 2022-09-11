@@ -32,20 +32,20 @@ CREATE TABLE IF NOT EXISTS `Teachers` (
 	id VARCHAR(255) PRIMARY KEY,
 	`name` VARCHAR(255),
 	email VARCHAR(255) NOT NULL UNIQUE,
-	birthDate DATE NOT NULL,
+	birth_date DATE NOT NULL,
     class_id VARCHAR(255) NOT NULL,
 	FOREIGN KEY (class_id) REFERENCES Classes(id)
 );
 
-CREATE TABLE IF NOT EXISTS `Experts` (
+CREATE TABLE IF NOT EXISTS `Expertise` (
     id VARCHAR(255) PRIMARY KEY,
     `name` VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS `Teachers_Experts` (
+CREATE TABLE IF NOT EXISTS `Teachers_Expertise` (
     id  VARCHAR(255) PRIMARY KEY,
     teacher_id  VARCHAR(255) NOT NULL,
-    expert_id VARCHAR(255) NOT NULL,
+    expertise_id VARCHAR(255) NOT NULL,
     FOREIGN KEY (teacher_id) REFERENCES Teachers (id),
-    FOREIGN KEY (expert_id) REFERENCES Experts (id)
+    FOREIGN KEY (expertise_id) REFERENCES Expertise (id)
 );
